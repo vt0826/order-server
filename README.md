@@ -26,7 +26,7 @@ vendor and produce.
 Project is created with:
 
 - apollo-server version: 2.2.5
-- graphal version 14.0.2
+- graphql version 14.0.2
 - mongoose version: 5.3.14
 
 ## Setup
