@@ -1,0 +1,43 @@
+#Account 
+
+type Account {
+  id:  ID!
+  email: String!
+  displayName: String
+  thirdPartyPaymentAccount: ThirdPartyPaymentAccount
+}
+
+type ThirdPartyPaymentAccount{
+  venmo: String
+  quickPay: String
+  payPal: String
+}
+
+type AccountReturn {
+  status: Boolean
+  message: String 
+}
+
+
+input NewAccountInput {
+  email: String!
+  displayName: String
+}
+input UpdateAccountInput {
+  email: String
+  venmo: String 
+  quickPay: String
+  payPal: String
+}
+
+extend type Query {
+  accounts: [Account]!
+  account(email: String!): Account!
+}
+
+extend type Mutation {
+  newAccount(input: NewAccountInput!): AccountReturn!
+  updateAccount(email: String!, input: UpdateAccountInput!): AccountReturn!
+  removeAccount(email: String!): AccountReturn!
+}
+

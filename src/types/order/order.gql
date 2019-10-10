@@ -1,0 +1,75 @@
+#Order 
+
+type Order {
+  id:  ID!
+  orderNumber: ID!
+  subTotal: Float!
+  orderItems: [OrderItem]
+  campaign: Campaign!
+  account: Account!
+  note: String
+  payment: String
+  complete: Boolean
+}
+
+type OrderReturn {
+  status: Boolean
+  message: String 
+  id: ID
+}
+type OrderSummaryReturn{
+  totalAmount: Float
+  orderItems:[OrderVariant]
+}
+
+type OrderVariant{
+  quantity: Int
+  amount: Float
+  option: String
+  variant: ID
+  item:Item
+}
+
+type OrderItem {
+  item : Item
+  variants: Variant
+  option:String
+  quantity: Int
+  amount: Float
+}
+
+input NewOrderInput {
+  subTotal: Float
+  payment: String
+  option: String
+  note: String
+  orderItems: [OrderItemInput]
+  campaign: ID
+  complete: Boolean
+}
+
+input OrderCampaignInput{
+  _id: ID
+}
+input OrderItemInput{
+  item: ID
+  variants: ID
+  option: String
+  quantity: Int
+  amount: Float
+}
+
+extend type Query {
+  orders: [Order]!
+  order(orderId: ID!): Order!
+  accountOrders:[Order]!
+  campaignOrders(campaignId:ID!):[Order]!
+  campaignOrderSummary(campaignId:ID!):OrderSummaryReturn!
+}
+
+extend type Mutation {
+  newOrder(input: NewOrderInput!): OrderReturn!
+  updateOrder(orderId: ID! input: NewOrderInput! ): OrderReturn!
+  removeOrder(orderId: ID!): OrderReturn!
+}
+

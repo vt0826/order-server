@@ -1,0 +1,69 @@
+#Item 
+
+type Item {
+  id:  ID
+  name: String
+  price: Float
+  pictures: [Picture]
+  variants: [Variant]
+  description: String
+  host: Account!
+}
+
+type Picture{
+  url: String
+  id: ID
+}
+
+type Variant{
+  option: String
+  quantity: Float
+  id: ID!
+}
+
+type ItemReturn {
+  status: Boolean
+  message: String 
+  id: ID
+}
+
+input UpdateItemInput {
+  name: String
+  price: Float
+  description: String
+  pictures: [PictureUrlInput]
+  variants: [VariantInput]
+}
+
+input PictureUrlInput {
+  url: String
+}
+
+input VariantInput {
+  option: String
+  quantity: Int
+}
+
+
+type Query {
+  items: [Item]!
+  accountItems:[Item]!
+  item(itemId: ID!): Item!
+}
+
+type Mutation {
+  newItem: ItemReturn!
+  updateItem(itemId: ID!, input: UpdateItemInput!): ItemReturn!
+  removeItem(itemId: ID!): ItemReturn!
+
+  addPictureUrl(itemId: ID!, input: UpdateItemInput!): ItemReturn!
+  updatePictureUrl(itemId: ID!, input: UpdateItemInput!): ItemReturn!
+  removePictureUrl(itemId: ID!, pictureId: ID!): ItemReturn!
+ 
+  addVariant(itemId: ID!, input: UpdateItemInput!): ItemReturn!
+  updateVariant(itemId: ID!, variantId: ID!, input: UpdateItemInput!): ItemReturn!
+  removeVariant(itemId: ID!, variantId: ID!): ItemReturn!
+
+  newItemAddToListItems(campaignId:ID!): ItemReturn!
+}
+

@@ -1,0 +1,64 @@
+#Campaign 
+
+scalar Date
+
+type Campaign {
+  id:  ID!
+  name: String
+  expiration: Date
+  detail: String
+  members: [Account]
+  host: Account!
+  listItems: [Item]
+  fulfillReq: Float
+  pickupTime: Date
+  pickupAddress: String
+}
+
+type CampaignReturn {
+  status: Boolean
+  message: String 
+  id: ID
+}
+
+input UpdateCampaignInput {
+  name: String
+  fulfillReq: Float
+  expiration: Date
+  detail: String
+  members: MemberAccountInput
+  listItems: ListItemInput
+  pickupTime: Date
+  pickupAddress: String
+
+}
+
+input MemberAccountInput{
+  email: String
+}
+
+input ListItemInput{
+  itemId: ID
+}
+
+extend type Query {
+  campaigns: [Campaign]!
+  campaign(campaignId: ID!): Campaign!
+  hostCampaigns: [Campaign]!
+  joinedCampaigns: [Campaign]!
+}
+
+extend type Mutation {
+  newCampaign: CampaignReturn!
+  updateCampaign(campaignId: ID!, input: UpdateCampaignInput!): CampaignReturn!
+  removeCampaign(campaignId: ID!): CampaignReturn!
+  
+  addMember(campaignId: ID!, input: UpdateCampaignInput!): CampaignReturn!
+  removeMember(campaignId: ID!, input: UpdateCampaignInput!): CampaignReturn!
+  
+  addListItem(campaignId: ID!, input: UpdateCampaignInput!): CampaignReturn!
+  removeListItem(campaignId: ID!, input: UpdateCampaignInput!): CampaignReturn!
+
+
+}
+
