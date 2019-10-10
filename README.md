@@ -1,79 +1,44 @@
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <h1 align="center">
-  Order by Thyhive
+ Order Server
 </h1>
 
-<h2 align="center">
-  Simplify local ordering with family and friends.
-</h2>
+## 🧐 What's inside?
 
-<p align="center">
-  Order Web Server
-  Based on Apollo Server and GraphQL.
-</p>
+Order Server Based on Apollo Server and GraphQL.
 
-## Start Guide
+## Table of contents
 
-1.  **...**
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
 
-    ```sh
-    ...
-    ```
+## General info
 
-2.  **...**
+Today we are facing the climate change problem globally. How might we bring
+together the users effort collectively as a community to reduce the carbon
+footprint by designing a platform so family and friends can order goods as a
+group to minimize transportation impact and also help to support the local
+vendor and produce.
 
-    ```sh
-    ...
-    ```
+## Technologies
 
-    ...
+Project is created with:
 
-## What's inside?
+- apollo-server version: 2.2.5
+- graphal version 14.0.2
+- mongoose version: 5.3.14
 
-Top-level files and directories in the project.
+## Setup
 
-    .
-    ├── ...
-    ├── ...
-    ├── ...
-    ├── .gitignore
-    ├── ...
-    ├── ...
-    ├── ...
-    ├── ...
-    ├── ...
-    ├── package.json
-    ├── README.md
-    └── ...
+To run this project, install it locally using npm:
 
-    *Note: Update file and directories information.*
+```
+$ cd ../order-server
+$ npm install
+$ npm start
+```
 
-1.  **`...`**: ...
+<!-- AUTO-GENERATED-CONTENT:END -->
 
-2.  **`...`**: ...
-
-3.  **`...`**: ...
-
-4.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-5.  **`...`**: ...
-
-6.  **`...`**: ...
-
-7.  **`...`**: ...
-
-8.  **`...`**: ...
-
-9.  **`...`**: ...
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. (You won’t change this file directly).
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-13. **`...`**: ...
-
-
-## Copyright
-
-Designed by Thyhive. © 2019 Thyhive LLC. All rights reserved.
+# Order-Server

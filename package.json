@@ -1,15 +1,15 @@
 {
-  "name": "intro-to-gql",
+  "name": "order-server",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "build": "babel src --out-dir dist",
     "test": "cross-env NODE_ENV=testing jest --forceExit --detectOpenHandles --silent",
-    "test-schema": "GQL_LESSON=lesson-2 npm test -- -t lesson-2",
-    "test-resolvers": "npm test -- -t lesson-3",
-    "test-interfaces": "cross-env npm test -- -t lesson-4",
-    "test-auth": "npm test -- -t lesson-5",
+    "test-schema": "GQL_order=order npm test -- -t order",
+    "test-resolvers": "npm test -- -t order",
+    "test-interfaces": "cross-env npm test -- -t order",
+    "test-auth": "npm test -- -t orderAuth",
     "dev": "nodemon --exec npm restart",
     "restart": "rimraf dist && npm run-script build && npm start",
     "start": "node dist/index.js"
@@ -48,7 +48,9 @@
     "testURL": "http://localhost/",
     "testEnvironment": "node",
     "setupTestFrameworkScriptFile": "<rootDir>/test-db-setup.js",
-    "testPathIgnorePatterns": ["dist/"],
+    "testPathIgnorePatterns": [
+      "dist/"
+    ],
     "restoreMocks": true
   },
   "dependencies": {
